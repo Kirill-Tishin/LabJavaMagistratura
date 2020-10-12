@@ -15,6 +15,6 @@ public class User {
     @Column(name = "Name")
     private String Name;
 
-    @OneToMany(mappedBy = "Order")
+    @OneToMany(mappedBy = "user")
     private Collection<Order> orders;
 }

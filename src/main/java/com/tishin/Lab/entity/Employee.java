@@ -23,12 +23,10 @@ public class Employee {
     @Column(name = "Telephone")
     private long Telephone;
 
-    @Column(name = "idCafe")
-    private int idCafe;
     @ManyToOne
-    @JoinColumn(name = "idCafe", referencedColumnName = "idCafe", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "cafe", referencedColumnName = "idCafe", nullable = false, insertable = false, updatable = false)
     private Cafe cafe;
 
-    @OneToMany(mappedBy = "Order")
+    @OneToMany(mappedBy = "employee")
     private Collection<Order> orders;
 }

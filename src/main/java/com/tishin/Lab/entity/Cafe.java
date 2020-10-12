@@ -22,6 +22,6 @@ public class Cafe {
     @Column(name = "Telephone")
     private long Telephone;
 
-    @OneToMany(mappedBy = "Employee")
+    @OneToMany(mappedBy = "cafe")
     private Collection<Employee> employees;
 }

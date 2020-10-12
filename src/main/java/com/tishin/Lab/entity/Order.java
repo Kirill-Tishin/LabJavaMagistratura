@@ -20,21 +20,15 @@ public class Order {
     @Column(name = "NumberTable")
     private int NumberTable;
 
-    @Column(name = "idEmployee")
-    private int idEmployee;
     @ManyToOne
-    @JoinColumn(name = "idEmployee",referencedColumnName = "idEmployee",nullable = true, insertable = false, updatable = false)
+    @JoinColumn(name = "employee",referencedColumnName = "idEmployee",nullable = true, insertable = false, updatable = false)
     private Employee employee;
 
-    @Column(name = "idProduct")
-    private int idProduct;
     @ManyToOne
-    @JoinColumn(name = "idProduct",referencedColumnName = "idProduct",nullable = true, insertable = false, updatable = false)
+    @JoinColumn(name = "product",referencedColumnName = "idProduct",nullable = true, insertable = false, updatable = false)
     private Product product;
 
-    @Column(name = "idUser")
-    private int idUser;
     @ManyToOne
-    @JoinColumn(name = "idUser",referencedColumnName = "idUser",nullable = true, insertable = false, updatable = false)
+    @JoinColumn(name = "user",referencedColumnName = "idUser",nullable = true, insertable = false, updatable = false)
     private User user;
 }

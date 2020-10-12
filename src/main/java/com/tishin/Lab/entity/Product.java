@@ -19,6 +19,6 @@ public class Product {
     @Column(name = "Description")
     private String Description;
 
-    @OneToMany(mappedBy = "Order")
+    @OneToMany(mappedBy = "product")
     private Collection<Order> orders;
 }
