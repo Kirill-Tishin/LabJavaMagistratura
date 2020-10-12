@@ -14,4 +14,6 @@ public class Cafe {
     private String Title;
     private String Address;
     private long Telephone;
+
+    private int test;
 }
