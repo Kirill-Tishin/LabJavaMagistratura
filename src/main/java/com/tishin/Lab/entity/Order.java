@@ -25,7 +25,7 @@ public class Order {
     private Employee employee;
 
     @ManyToOne
-    @JoinColumn(name = "product",referencedColumnName = "idProduct",nullable = true, insertable = false, updatable = false)
+    @JoinColumn(name = "product",referencedColumnName = "idProduct",nullable = false, insertable = false, updatable = false)
     private Product product;
 
     @ManyToOne
