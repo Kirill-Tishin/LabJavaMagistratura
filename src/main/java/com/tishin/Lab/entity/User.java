@@ -6,7 +6,7 @@ import java.util.Collection;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "User", schema = "public", catalog = "Cafe")
+@Table(name = "user", schema = "public", catalog = "Cafe")
 public class User {
     @Id
     @GeneratedValue(strategy = IDENTITY) //AUTO, SEQUENCE, TABLE

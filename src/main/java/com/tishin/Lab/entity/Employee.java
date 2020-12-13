@@ -9,7 +9,7 @@ import java.util.Collection;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "Employee", schema = "public", catalog = "Cafe")
+@Table(name = "employee", schema = "public", catalog = "Cafe")
 @Data
 public class Employee {
     @Id
@@ -27,6 +27,6 @@ public class Employee {
     @JoinColumn(name = "cafe", referencedColumnName = "idCafe", nullable = false, insertable = false, updatable = false)
     private Cafe cafe;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "Employee")
     private Collection<Order> orders;
 }

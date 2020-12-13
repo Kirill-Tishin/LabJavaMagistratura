@@ -8,7 +8,7 @@ import java.util.Collection;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "Cafe", schema = "public", catalog = "Cafe")
+@Table(name = "cafe", schema = "public", catalog = "Cafe")
 @Data
 public class Cafe {
     @Id
