@@ -29,6 +29,6 @@ public class Order {
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "user",referencedColumnName = "idUser",nullable = true, insertable = false, updatable = false)
-    private User user;
+    @JoinColumn(name = "userTable",referencedColumnName = "idUser",nullable = true, insertable = false, updatable = false)
+    private User userTable;
 }

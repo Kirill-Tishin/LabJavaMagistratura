@@ -1,4 +1,6 @@
 package com.tishin.Lab.entity;
+import lombok.Data;
+
 import javax.persistence.*;
 
 import java.util.Collection;
@@ -6,7 +8,8 @@ import java.util.Collection;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "user", schema = "public", catalog = "Cafe")
+@Table(name = "userTable", schema = "public", catalog = "Cafe")
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = IDENTITY) //AUTO, SEQUENCE, TABLE
@@ -15,6 +18,6 @@ public class User {
     @Column(name = "Name")
     private String Name;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userTable")
     private Collection<Order> orders;
 }

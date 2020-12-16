@@ -27,6 +27,6 @@ public class Employee {
     @JoinColumn(name = "cafe", referencedColumnName = "idCafe", nullable = false, insertable = false, updatable = false)
     private Cafe cafe;
 
-    @OneToMany(mappedBy = "Employee")
+    @OneToMany(mappedBy = "employee")
     private Collection<Order> orders;
 }
