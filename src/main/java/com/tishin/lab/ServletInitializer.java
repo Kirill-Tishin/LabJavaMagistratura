@@ -1,4 +1,4 @@
-package com.tishin.Lab;
+package com.tishin.lab;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

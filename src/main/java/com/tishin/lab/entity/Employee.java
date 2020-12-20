@@ -1,4 +1,4 @@
-package com.tishin.Lab.entity;
+package com.tishin.lab.entity;
 
 import lombok.Data;
 
@@ -15,7 +15,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = IDENTITY) //AUTO, SEQUENCE, TABLE
     @Column(name = "idEmployee")
-    private int idEmployee;
+    private Long idEmployee;
     @Column(name = "Name")
     private String Name;
     @Column(name = "FirstName")

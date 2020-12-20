@@ -1,4 +1,4 @@
-package com.tishin.Lab;
+package com.tishin.lab;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

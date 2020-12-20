@@ -1,4 +1,4 @@
-package com.tishin.Lab.entity;
+package com.tishin.lab.entity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,7 +14,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = IDENTITY) //AUTO, SEQUENCE, TABLE
     @Column(name = "idProduct")
-    private int idProduct;
+    private Long idProduct;
     @Column(name = "Price")
     private double Price;
     @Column(name = "Title")

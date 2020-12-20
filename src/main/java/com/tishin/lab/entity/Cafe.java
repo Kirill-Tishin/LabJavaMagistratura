@@ -1,4 +1,4 @@
-package com.tishin.Lab.entity;
+package com.tishin.lab.entity;
 
 import lombok.Data;
 
@@ -14,7 +14,7 @@ public class Cafe {
     @Id
     @GeneratedValue(strategy = IDENTITY) //AUTO, SEQUENCE, TABLE
     @Column(name = "idCafe")
-    private int idCafe;
+    private Long idCafe;
     @Column(name = "Title")
     private String Title;
     @Column(name = "Address")

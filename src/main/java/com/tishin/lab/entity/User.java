@@ -1,4 +1,4 @@
-package com.tishin.Lab.entity;
+package com.tishin.lab.entity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,9 +14,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = IDENTITY) //AUTO, SEQUENCE, TABLE
     @Column(name = "idUser")
-    private int idUser;
+    private Long idUser;
     @Column(name = "Name")
     private String Name;
+    @Column(name = "Password")
+    private String Password;
 
     @OneToMany(mappedBy = "userTable")
     private Collection<Order> orders;

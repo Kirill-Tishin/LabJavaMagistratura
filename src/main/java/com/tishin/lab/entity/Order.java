@@ -1,4 +1,4 @@
-package com.tishin.Lab.entity;
+package com.tishin.lab.entity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,7 +12,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = IDENTITY) //AUTO, SEQUENCE, TABLE
     @Column(name = "idOrder")
-    private int idOrder;
+    private Long idOrder;
     @Column(name = "Sum")
     private double Sum;
     @Column(name = "Title")
