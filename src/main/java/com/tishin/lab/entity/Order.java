@@ -1,34 +1,37 @@
 package com.tishin.lab.entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
 
-import static javax.persistence.GenerationType.IDENTITY;
+import static javax.persistence.GenerationType.*;
 
 @Entity
-@Table(name = "order", schema = "public", catalog = "Cafe")
+@Table(name = "orders")
 @Data
 public class Order {
     @Id
-    @GeneratedValue(strategy = IDENTITY) //AUTO, SEQUENCE, TABLE
+    @GeneratedValue(strategy = SEQUENCE) //AUTO, SEQUENCE, TABLE
     @Column(name = "idOrder")
     private Long idOrder;
-    @Column(name = "Sum")
-    private double Sum;
-    @Column(name = "Title")
-    private String Title;
-    @Column(name = "NumberTable")
-    private int NumberTable;
+    @Column(name = "sum")
+    private double sum;
+    @Column(name = "title")
+    private String title;
+    @Column(name = "numberTable")
+    private int numberTable;
 
-    @ManyToOne
-    @JoinColumn(name = "employee",referencedColumnName = "idEmployee",nullable = true, insertable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "idEmployee")
     private Employee employee;
 
-    @ManyToOne
-    @JoinColumn(name = "product",referencedColumnName = "idProduct",nullable = false, insertable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "idProduct")
     private Product product;
 
-    @ManyToOne
-    @JoinColumn(name = "userTable",referencedColumnName = "idUser",nullable = true, insertable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "idUser")
     private User userTable;
 }

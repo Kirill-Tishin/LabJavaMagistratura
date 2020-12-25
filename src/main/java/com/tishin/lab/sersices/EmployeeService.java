@@ -1,5 +1,6 @@
 package com.tishin.lab.sersices;
 
+import com.tishin.lab.entity.Cafe;
 import com.tishin.lab.entity.Employee;
 import com.tishin.lab.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,9 @@ public class EmployeeService {
 
     public List<Employee> getAllEmployee(){
         return employeeRepository.findAll();
+    }
+
+    public Employee getEmployeeForCafe(Cafe cafe){
+        return employeeRepository.getEmployeeForCafe(cafe);
     }
 }

@@ -1,32 +1,36 @@
 package com.tishin.lab.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
 
 import java.util.Collection;
 
-import static javax.persistence.GenerationType.IDENTITY;
+import static javax.persistence.GenerationType.*;
 
 @Entity
-@Table(name = "employee", schema = "public", catalog = "Cafe")
+@Table(name = "employees")
 @Data
 public class Employee {
     @Id
-    @GeneratedValue(strategy = IDENTITY) //AUTO, SEQUENCE, TABLE
+    @GeneratedValue(strategy = SEQUENCE) //AUTO, SEQUENCE, TABLE
     @Column(name = "idEmployee")
     private Long idEmployee;
-    @Column(name = "Name")
-    private String Name;
-    @Column(name = "FirstName")
-    private String FirstName;
-    @Column(name = "Telephone")
-    private long Telephone;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "firstName")
+    private String firstName;
+    @Column(name = "telephone")
+    private String telephone;
 
-    @ManyToOne
-    @JoinColumn(name = "cafe", referencedColumnName = "idCafe", nullable = false, insertable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "idCafe")
     private Cafe cafe;
 
     @OneToMany(mappedBy = "employee")
+    @JsonIgnore
     private Collection<Order> orders;
 }

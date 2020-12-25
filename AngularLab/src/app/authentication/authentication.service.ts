@@ -11,7 +11,7 @@ export class AuthenticationService {
   USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUsername';
   USER_PASSWORD_SESSION_ATTR_NAME = 'authenticatedPassword';
 
-  private url = 'http://localhost:8070/api/user';
+  private url = 'http://localhost:8070/api/user-auth';
   username;
   password;
 
@@ -24,7 +24,6 @@ export class AuthenticationService {
         authorization: this.createBasicAuthToken(username, password)
       }
     }).pipe(map((res) => {
-      debugger;
       this.username = username;
       this.password = password;
       this.registerLoginData(username, password);
@@ -36,13 +35,11 @@ export class AuthenticationService {
   }
 
   private registerLoginData(username: string, password: string): void {
-    debugger;
     sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username);
     sessionStorage.setItem(this.USER_PASSWORD_SESSION_ATTR_NAME, password);
   }
 
   isUserLoggedIn(): boolean {
-    debugger;
     const user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     return user !== null;
   }
@@ -57,7 +54,6 @@ export class AuthenticationService {
 
   // tslint:disable-next-line:typedef
   logout() {
-    debugger;
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
     sessionStorage.removeItem(this.USER_PASSWORD_SESSION_ATTR_NAME);
     this.username = null;

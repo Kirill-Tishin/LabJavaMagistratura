@@ -1,4 +1,7 @@
 package com.tishin.lab.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,17 +11,16 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
 
-import static javax.persistence.GenerationType.IDENTITY;
-import static javax.persistence.GenerationType.SEQUENCE;
+import static javax.persistence.GenerationType.*;
 
 @Entity
-@Table(name = "userTable", schema = "public", catalog = "Cafe")
+@Table(name = "userTable")
 @Data
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = SEQUENCE) //AUTO, SEQUENCE, TABLE
     @Column(name = "idUser")
-    private String idUser;
+    private Long idUser;
     @Column(name = "name")
     private String name;
     @Column(name = "Password")
@@ -27,6 +29,7 @@ public class User implements UserDetails {
     private String Role;
 
     @OneToMany(mappedBy = "userTable")
+    @JsonIgnore
     private Collection<Order> orders;
 
     @Override

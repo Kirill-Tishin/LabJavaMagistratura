@@ -1,27 +1,30 @@
 package com.tishin.lab.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Collection;
 
-import static javax.persistence.GenerationType.IDENTITY;
+import static javax.persistence.GenerationType.*;
 
 @Entity
-@Table(name = "cafe", schema = "public", catalog = "Cafe")
+@Table(name = "cafes")
 @Data
 public class Cafe {
+
     @Id
-    @GeneratedValue(strategy = IDENTITY) //AUTO, SEQUENCE, TABLE
+    @GeneratedValue(strategy = SEQUENCE) //AUTO, SEQUENCE, TABLE
     @Column(name = "idCafe")
     private Long idCafe;
-    @Column(name = "Title")
-    private String Title;
-    @Column(name = "Address")
-    private String Address;
-    @Column(name = "Telephone")
-    private long Telephone;
+    @Column(name = "title")
+    private String title;
+    @Column(name = "address")
+    private String address;
+    @Column(name = "telephone")
+    private String telephone;
 
     @OneToMany(mappedBy = "cafe")
+    @JsonIgnore
     private Collection<Employee> employees;
 }

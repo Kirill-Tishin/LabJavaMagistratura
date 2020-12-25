@@ -24,12 +24,11 @@ export class LoginComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   handleLogin(){
-    debugger;
     this.authenticationService.authenticate(this.login, this.password).subscribe((result) => {
       this.invalidLogin = false;
       this.loginSuccess = true;
       this.successMessage = 'Login Successful.';
-      this.router.navigate(['/cafe_list']);
+      this.router.navigate(['/cafes']);
     }, () => {
       this.invalidLogin = true;
       this.loginSuccess = false;

@@ -5,7 +5,10 @@ import com.tishin.lab.sersices.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -17,7 +20,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    @RequestMapping(value = "/user-auth", method = RequestMethod.GET)
     public AuthenticationStatus user() {
         return new AuthenticationStatus("Success");
     }
@@ -43,8 +46,13 @@ public class UserController {
         return userService.getUser(id);
     }
 
- /*   @RequestMapping(value = "/user", method = RequestMethod.GET)
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
     public List<User> getUserAll() {
         return userService.getAllUser();
-    }*/
+    }
+
+    @RequestMapping(value = "/userName/{name}", method = RequestMethod.GET)
+    public UserDetails getUserByName(@PathVariable String name) {
+        return userService.loadUserByUsername(name);
+    }
 }

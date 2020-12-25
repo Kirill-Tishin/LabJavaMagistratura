@@ -1,7 +1,12 @@
 package com.tishin.lab.controllers;
 
 import com.tishin.lab.entity.Cafe;
+import com.tishin.lab.entity.Employee;
+import com.tishin.lab.entity.Order;
+import com.tishin.lab.entity.Product;
 import com.tishin.lab.sersices.CafeService;
+import com.tishin.lab.sersices.EmployeeService;
+import com.tishin.lab.sersices.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +18,14 @@ import java.util.List;
 @RequestMapping("/api")
 public class CafeController {
     private CafeService cafeService;
+    private EmployeeService employeeService;
+    private OrderService orderService;
 
     @Autowired
-    public CafeController(CafeService cafeService){
+    public CafeController(CafeService cafeService, EmployeeService employeeService,OrderService orderService){
         this.cafeService = cafeService;
+        this.employeeService = employeeService;
+        this.orderService = orderService;
     }
 
     @RequestMapping(value = "/cafe", method = RequestMethod.POST)
@@ -24,10 +33,18 @@ public class CafeController {
         return cafeService.saveCafe(cafe);
     }
 
-    @RequestMapping(value = "cafe/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Object> deleteCafe(@PathVariable long id) {
-        cafeService.deleteById(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    @DeleteMapping(value = "cafe/{id}")
+    public void deleteCafe(@PathVariable long id) {
+        Cafe cafe = getCafe(id);
+        EmployeeController employeeController = new EmployeeController(employeeService,orderService);
+        List<Employee> employees = employeeService.getAllEmployee();
+        for (Employee employee : employees) {
+            if (employee.getCafe().equals(cafe)) {
+                //employeeService.deleteById(employee.getIdEmployee());
+                employeeController.deleteEmployee(employee.getIdEmployee());
+            }
+        }
+        cafeService.deleteCafe(cafe);
     }
 
     @RequestMapping(value = "/cafe", method = RequestMethod.PUT)

@@ -1,6 +1,6 @@
 export class Cafe{
   idCafe: number;
-  Title: string;
-  Address: string;
-  Telephone: number;
+  title: string;
+  address: string;
+  telephone: string;
 }

@@ -9,16 +9,14 @@ import {Router} from '@angular/router';
 })
 export class HttpInterceptorService implements HttpInterceptor {
 
-  private loginUrl = 'http://localhost:8070/api/user';
+  private loginUrl = 'http://localhost:8070/api/user-auth';
 
   constructor(private authenticationService: AuthenticationService,
               private router: Router) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    debugger;
     if (this.authenticationService.isUserLoggedIn() && req.url.indexOf('basicauth') === -1) {
-      debugger;
       const authReq = req.clone({
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
