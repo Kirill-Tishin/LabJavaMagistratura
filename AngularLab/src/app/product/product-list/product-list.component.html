@@ -1,0 +1,64 @@
+<div class="main">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand">Cafe</a>
+    <div class="collapse navbar-collapse" id="navbarsExample05">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a mat-button class="nav-link" href="/cafes">Кафе<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a mat-button class="nav-link" href="/orders">Заказы<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a mat-button class="nav-link" href="/employees">Работники<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a mat-button class="nav-link" href="/users">Пользователи<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a mat-button class="nav-link" href="/products">Продукты<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <button mat-button (click)="userLogout()" class="btn-danger">Quit</button>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col-lg-8">
+        <table class="table text-center">
+          <thead class="thead-light">
+          <tr>
+            <th scope="col">Название</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Описание</th>
+            <td>
+              <button mat-button class="btn-warning" (click)="addProduct()">Add</button>
+            </td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let product of products">
+            <td>{{product.title}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.description}}</td>
+            <td>
+              <button mat-button class="btn-warning" (click)="updateProduct(product.idProduct)">Change</button>
+            </td>
+            <td>
+              <button mat-button class="btn-warning" (click)="deleteProduct(product.idProduct)">Delete</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col">
+      </div>
+      <div class="form-row mr-0 mt-5">
+        <div class="col">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

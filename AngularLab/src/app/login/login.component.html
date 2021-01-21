@@ -1,0 +1,14 @@
+<div class="text-center" id="container">
+  <form class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal">Form input</h1>
+    <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+    <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
+    <label for="inputLogin" class="sr-only">Login</label>
+    <input type="text" id="inputLogin" class="form-control" placeholder="Login" required autofocus name="login"
+           [(ngModel)]="login">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password"
+           [(ngModel)]="password">
+    <button class="btn btn-lg btn-primary btn-block" (click)="handleLogin()">Войти</button>
+  </form>
+</div>

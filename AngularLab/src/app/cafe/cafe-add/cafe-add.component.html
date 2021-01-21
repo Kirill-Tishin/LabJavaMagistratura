@@ -1,0 +1,35 @@
+<mat-dialog-content>
+  <h1>Добавить кафе</h1>
+  <form ngNativeValidate (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="form-row">
+      <div class="col text-center">
+<!--        <mat-label>Название:  </mat-label>-->
+        <mat-form-field>
+          <mat-label>Название:  </mat-label>
+          <input matInput type="text" name="title" maxlength="50" [(ngModel)]="title">
+        </mat-form-field>
+      </div>
+      <div class="col text-center">
+        <mat-label>Адрес: </mat-label>
+        <mat-form-field>
+          <input matInput type="text" name="address" maxlength="50" [(ngModel)]="address">
+        </mat-form-field>
+      </div>
+      <div class="col text-center">
+        <mat-label>Телефон: </mat-label>
+        <mat-form-field>
+          <input matInput type="text" name="telephone" maxlength="15" [(ngModel)]="telephone">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col text-center">
+        <button mat-button color="primary" type="submit">Add</button>
+      </div>
+      <div class="col text-center">
+        <button mat-button color="primary" class="btn-warning" href="/cafes" >Back</button>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
