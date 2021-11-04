@@ -19,7 +19,7 @@
           <a mat-button class="nav-link" href="/products">Продукты<span class="sr-only">(current)</span></a>
         </li>
       </ul>
-      <button mat-button (click)="userLogout()" class="btn-danger">Quit</button>
+      <button mat-button (click)="userLogout()" class="btn-danger">Выход</button>
     </div>
   </nav>
   <div class="container">
@@ -32,16 +32,13 @@
           <tr>
             <th scope="col">Имя пользователя</th>
             <td>
-              <button mat-button class="btn-warning" (click)="addUser()">Add</button>
+              <button mat-button class="btn-warning" (click)="addUser()">Добавить</button>
             </td>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let user of users">
             <td>{{user.name}}</td>
-            <td>
-              <button mat-button class="btn-warning" (click)="updateUser(user.idUser)">Change</button>
-            </td>
           </tr>
           </tbody>
         </table>

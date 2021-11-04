@@ -43,9 +43,8 @@ export class CafeAddComponent implements OnInit {
 
     this.cafeService.createCafe(this.cafe).subscribe(data => {
       console.log(data);
-      this.router.navigate(['cafes']);
-    });
-
+      this.matDialogRef.close(data);
+    }, error => console.log(error));
   }
 
   userLogout(): void {

@@ -3,27 +3,31 @@
   <form ngNativeValidate (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="form-row">
       <div class="col text-center">
-        <mat-label>Имя:  </mat-label>
+
         <mat-form-field>
+          <mat-label>Имя</mat-label>
           <input matInput type="text" name="name" maxlength="50" [(ngModel)]="name">
         </mat-form-field>
       </div>
       <div class="col text-center">
-        <mat-label>Фамилия: </mat-label>
+
         <mat-form-field>
+          <mat-label>Фамилия</mat-label>
           <input matInput type="text" name="firstName" maxlength="50" [(ngModel)]="firstName">
         </mat-form-field>
       </div>
       <div class="col text-center">
-        <mat-label>Телефон: </mat-label>
+
         <mat-form-field>
+          <mat-label>Телефон</mat-label>
           <input matInput type="text" name="telephone" maxlength="15" [(ngModel)]="telephone">
         </mat-form-field>
       </div>
 
       <div class="col border-right-bottom border-bottom-bottom">
-        <mat-label>Cafe:</mat-label>
+
         <mat-form-field class="patient-info-group">
+          <mat-label>Кафе</mat-label>
           <mat-select name="cafeSelect" [(ngModel)]="cafeId">
             <mat-option *ngFor="let cafe of cafes"
                         value="{{cafe.idCafe}}">{{cafe.title}}</mat-option>
@@ -34,10 +38,7 @@
 
     <div class="form-row">
       <div class="col text-center">
-        <button mat-button color="primary" type="submit">Add</button>
-      </div>
-      <div class="col text-center">
-        <button mat-button color="primary" class="btn-warning" href="/employees">Back</button>
+        <button mat-button color="primary" type="btn-warning" class="btn-warning">Добавить</button>
       </div>
     </div>
   </form>

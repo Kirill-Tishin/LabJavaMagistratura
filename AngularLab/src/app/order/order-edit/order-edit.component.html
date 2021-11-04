@@ -1,16 +1,18 @@
 <mat-dialog-content>
-  <h1>Добавить order</h1>
+  <h1>Изменить заказ</h1>
   <form ngNativeValidate (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="form-row">
       <div class="col text-center">
-        <mat-label>Номер столика:  </mat-label>
+
         <mat-form-field>
-          <input matInput type="text" name="title" maxlength="50" [(ngModel)]="numberTable">
+          <mat-label>Номер столика</mat-label>
+          <input matInput type="number" name="title" maxlength="50" [(ngModel)]="numberTable">
         </mat-form-field>
       </div>
       <div class="col border-right-bottom border-bottom-bottom">
-        <mat-label>Name employee: </mat-label>
+
         <mat-form-field class="patient-info-group">
+          <mat-label>Имя работника</mat-label>
           <mat-select name="employeeSelect" [(ngModel)]="employeeId">
             <mat-option *ngFor="let employee of employees"
                         value="{{employee.idEmployee}}">{{employee.name}}</mat-option>
@@ -19,8 +21,9 @@
       </div>
 
       <div class="col border-right-bottom border-bottom-bottom">
-        <mat-label>Product: </mat-label>
+
         <mat-form-field class="patient-info-group">
+          <mat-label>Продукт</mat-label>
           <mat-select name="productSelect" [(ngModel)]="productId">
             <mat-option *ngFor="let product of products"
                         value="{{product.idProduct}}">{{product.title}}</mat-option>
@@ -28,27 +31,21 @@
         </mat-form-field>
       </div>
 
-      <div class="col text-center">
-        <mat-label>Sum: </mat-label>
-        <mat-form-field>
-          <input matInput type="text" name="sum" maxlength="150" [(ngModel)]="sum">
-        </mat-form-field>
-      </div>
+      <div class="col border-right-bottom border-bottom-bottom">
 
-      <div class="col text-center">
-        <mat-label>Name: </mat-label>
-        <mat-form-field>
-          <input matInput type="text" name="nameuser" maxlength="150" [(ngModel)]="userName">
+        <mat-form-field class="patient-info-group">
+          <mat-label>Пользователь</mat-label>
+          <mat-select name="userSelect" [(ngModel)]="userId">
+            <mat-option *ngFor="let user of users"
+                        value="{{user.idUser}}">{{user.name}}</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
     </div>
 
     <div class="form-row">
       <div class="col text-center">
-        <button mat-button color="primary" type="submit">Add</button>
-      </div>
-      <div class="col text-center">
-        <button mat-button color="primary" class="btn-warning" href="/products">Back</button>
+        <button mat-button color="primary" type="btn-warning" class="btn-warning">Изменить</button>
       </div>
     </div>
   </form>

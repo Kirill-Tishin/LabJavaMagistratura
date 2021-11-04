@@ -3,31 +3,31 @@
   <form ngNativeValidate (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="form-row">
       <div class="col text-center">
-        <mat-label>Название:  </mat-label>
+
         <mat-form-field>
-          <input matInput type="text" name="title" maxlength="50" [(ngModel)]="cafe.title">
+          <mat-label>Название</mat-label>
+          <input matInput type="text" name="title" maxlength="50" [(ngModel)]="title">
         </mat-form-field>
       </div>
       <div class="col text-center">
-        <mat-label>Адрес: </mat-label>
+
         <mat-form-field>
-          <input matInput type="text" name="address" maxlength="50" [(ngModel)]="cafe.address">
+          <mat-label>Адрес</mat-label>
+          <input matInput type="text" name="address" maxlength="50" [(ngModel)]="address">
         </mat-form-field>
       </div>
       <div class="col text-center">
-        <mat-label>Телефон: </mat-label>
+
         <mat-form-field>
-          <input matInput type="text" name="telephone" maxlength="15" [(ngModel)]="cafe.telephone">
+          <mat-label>Телефон</mat-label>
+          <input matInput type="text" name="telephone" maxlength="15" [(ngModel)]="telephone">
         </mat-form-field>
       </div>
     </div>
 
     <div class="form-row">
       <div class="col text-center">
-        <button mat-button color="primary" type="submit">Save</button>
-      </div>
-      <div class="col text-center">
-        <button mat-button color="primary" class="btn-warning" href="/cafes" >Back</button>
+        <button mat-button color="primary" type="submit" class="btn-warning">Сохранить</button>
       </div>
     </div>
   </form>

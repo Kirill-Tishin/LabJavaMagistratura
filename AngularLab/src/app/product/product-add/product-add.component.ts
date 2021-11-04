@@ -41,7 +41,7 @@ export class ProductAddComponent implements OnInit {
 
     this.productService.createProduct(this.product).subscribe(data => {
       console.log(data);
-      this.router.navigate(['products']);
+      this.matDialogRef.close(data);
     }, error => console.log(error));
   }
 }

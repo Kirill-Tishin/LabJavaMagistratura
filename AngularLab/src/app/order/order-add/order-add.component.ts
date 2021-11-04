@@ -80,13 +80,12 @@ export class OrderAddComponent implements OnInit {
     debugger;
     this.order.numberTable = this.numberTable;
     this.order.sum = this.chooseProduct(this.productId).price;
-    //this.order.userTable = this.getUser(this.authService.getUsername());
     this.order.userTable = this.chooseUser(this.userId);
     this.order.employee = this.chooseEmployee(this.employeeId);
     this.order.product = this.chooseProduct(this.productId);
     this.orderService.createOrder(this.order).subscribe(data => {
       console.log(data);
-      this.router.navigate(['orders']);
+      this.matDialogRef.close(data);
     }, error => console.log(error));
   }
 

@@ -1,1 +1,22 @@
-<p>user-add works!</p>
+<mat-dialog-content>
+  <h1>Добавить пользователя</h1>
+  <form ngNativeValidate (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="form-row">
+      <div class="col text-center">
+        <mat-form-field>
+          <mat-label>Имя</mat-label>
+          <input matInput type="text" name="name" maxlength="50" [(ngModel)]="name">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Пароль</mat-label>
+          <input matInput type="password" name="name" maxlength="50" [(ngModel)]="password">
+        </mat-form-field>
+        <div class="form-row">
+          <div class="col text-center">
+            <button mat-button color="primary" type="submit" class="btn-warning">Добавить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>

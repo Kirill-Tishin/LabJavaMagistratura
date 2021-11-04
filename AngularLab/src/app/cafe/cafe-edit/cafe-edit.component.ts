@@ -18,32 +18,34 @@ export class CafeEditComponent implements OnInit {
   cafe: Cafe;
   cafeId: string;
   employees: Employee[];
-  employeeForCafe: Employee[];
+  title: string;
+  address: string;
+  telephone: string;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               private matDialogRef: MatDialogRef<CafeEditComponent>,
               private authService: AuthenticationService,
               private router: Router,
-              private employeeService: EmployeeService,
               private cafeService: CafeService
               ) { }
 
   ngOnInit(): void {
     this.cafe = this.data.cafeData;
     this.cafeId = this.cafe.idCafe.toString();
+    this.title = this.cafe.title;
+    this.address = this.cafe.address;
+    this.telephone = this.cafe.telephone;
     this.inputField();
   }
 
   private inputField(): void {
   }
 
-  private findEmployeeById(id: number): Employee {
-    // tslint:disable-next-line:triple-equals
-    return this.employees.filter(employee => employee.idEmployee === id)[0];
-  }
-
   onSubmit(): void {
     debugger;
+    this.cafe.title = this.title;
+    this.cafe.address = this.address;
+    this.cafe.telephone = this.telephone;
     this.cafeService.updateCafe(this.cafe).subscribe(data => {
       console.log(data);
       this.matDialogRef.close(data);

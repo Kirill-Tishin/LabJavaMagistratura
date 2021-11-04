@@ -51,6 +51,7 @@ export class CafeListComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getCafes();
+      this.matDialog.closeAll();
     });
   }
 
@@ -65,22 +66,15 @@ export class CafeListComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getCafes();
+      this.matDialog.closeAll();
     });
   }
 
   deleteCafe(id: number): void {
     debugger;
     this.cafeService.deleteCafe(id)
-      .subscribe(
-        data => {
-          console.log(data);
-         // this.reloadData();
-        },
-        error => console.log(error));
+      .subscribe(data => {
+        console.log(data);
+      }, error => console.log(error));
   }
-
-  // reloadData() {
-  //   this.cafes = this.cafeService.getCafes();
-  //   //this.cafes = this.cafesList;
-  // }
 }

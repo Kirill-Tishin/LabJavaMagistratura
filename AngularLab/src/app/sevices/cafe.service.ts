@@ -26,7 +26,6 @@ export class CafeService {
 
   // tslint:disable-next-line:typedef
   deleteCafe(id: number): Observable<any> {
-    debugger;
     return this.httpClient.delete(`${this.url}/${id}`, {responseType: 'text' as 'json'});
   }
 

@@ -19,6 +19,9 @@ export class EmployeeEditComponent implements OnInit {
   employee: Employee;
   employeeId: string;
   employees: Employee[];
+  name: string;
+  firstName: string;
+  telephone: string;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               private matDialogRef: MatDialogRef<EmployeeEditComponent>,
@@ -34,6 +37,9 @@ export class EmployeeEditComponent implements OnInit {
     this.employee = this.data.employeeData;
     this.employeeId = this.employee.idEmployee.toString();
     this.cafes = this.data.cafeData;
+    this.name = this.employee.name;
+    this.firstName = this.employee.firstName;
+    this.telephone = this.employee.telephone;
     this.inputField();
   }
 
@@ -51,6 +57,9 @@ export class EmployeeEditComponent implements OnInit {
 
   onSubmit(): void {
     debugger;
+    this.employee.name = this.name;
+    this.employee.firstName = this.firstName;
+    this.employee.telephone = this.telephone;
     this.employee.cafe = this.chooseCafe(this.cafeId);
     this.employeeService.updateEmployee(this.employee).subscribe(data => {
       console.log(data);

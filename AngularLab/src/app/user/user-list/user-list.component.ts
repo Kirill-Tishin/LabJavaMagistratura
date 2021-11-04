@@ -8,6 +8,8 @@ import {ProductEditComponent} from '../../product/product-edit/product-edit.comp
 import {User} from '../../entity/User';
 import {UserService} from '../../sevices/user.service';
 import {UserEditComponent} from '../user-edit/user-edit.component';
+import {OrderAddComponent} from "../../order/order-add/order-add.component";
+import {UserAddComponent} from "../user-add/user-add.component";
 
 @Component({
   selector: 'app-user-list',
@@ -38,9 +40,6 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  deleteUser(id: number): void {
-  }
-
   userLogout(): void {
     this.authService.logout();
     this.router.navigate(['']);
@@ -55,6 +54,7 @@ export class UserListComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getUsers();
+      this.matDialog.closeAll();
     });
   }
 
@@ -64,6 +64,13 @@ export class UserListComponent implements OnInit {
     return this.users.filter(user => user.idUser === id)[0];
   }
 
-  addUser(): void{
+  addUser(): void {
+    const dialogRef = this.matDialog.open(UserAddComponent, {
+      hasBackdrop: true
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getUsers();
+      this.matDialog.closeAll();
+    });
   }
 }

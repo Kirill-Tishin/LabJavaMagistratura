@@ -16,6 +16,10 @@ export class ProductEditComponent implements OnInit {
   productId: string;
   products: Product[];
 
+  title: string;
+  price: number;
+  description: string;
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               private matDialogRef: MatDialogRef<ProductEditComponent>,
               private authService: AuthenticationService,
@@ -28,16 +32,20 @@ export class ProductEditComponent implements OnInit {
     debugger;
     this.product = this.data.productData;
     this.productId = this.product.idProduct.toString();
+    this.title = this.product.title;
+    this.description = this.product.description;
+    this.price = this.product.price;
     this.inputField();
   }
 
   private inputField(): void {
-    debugger;
     this.productService.getProducts().subscribe(data => this.products = data);
   }
 
   onSubmit(): void {
-    debugger;
+    this.product.title = this.title;
+    this.product.price = this.price;
+    this.product.description = this.description;
     this.productService.updateProduct(this.product).subscribe(data => {
       console.log(data);
       this.matDialogRef.close(data);

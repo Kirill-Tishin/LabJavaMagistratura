@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebSecurity
 public class SecurityClass extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
-    private final UserService userService;
+    private UserService userService;
 
     @Autowired
     public SecurityClass(UserService userService) {

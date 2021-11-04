@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,10 +15,12 @@ import java.util.List;
 @RequestMapping("/api")
 public class UserController {
     private UserService userService;
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserController(UserService userService){
+    public UserController(UserService userService, BCryptPasswordEncoder passwordEncoder){
         this.userService = userService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @RequestMapping(value = "/user-auth", method = RequestMethod.GET)
@@ -27,6 +30,7 @@ public class UserController {
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     public User createUser(@RequestBody User user){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userService.saveUser(user);
     }
 

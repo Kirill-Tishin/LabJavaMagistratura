@@ -49,6 +49,7 @@ export class OrderListComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getOrders();
+      this.matDialog.closeAll();
     });
   }
 
@@ -63,16 +64,15 @@ export class OrderListComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getOrders();
+      this.matDialog.closeAll();
     });
   }
 
   deleteOrder(id: number): void {
     debugger;
     this.orderService.deleteOrder(id)
-      .subscribe(
-        data => {
-          console.log(data);
-        },
-        error => console.log(error));
+      .subscribe(data => {
+        console.log(data);
+      }, error => console.log(error));
   }
 }

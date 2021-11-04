@@ -57,7 +57,7 @@ export class EmployeeAddComponent implements OnInit {
     this.employee.cafe = this.chooseCafe(this.cafeId);
     this.employeeService.createEmployee(this.employee).subscribe(data => {
       console.log(data);
-      this.router.navigate(['employees']);
+      this.matDialogRef.close(data);
     }, error => console.log(error));
   }
 }

@@ -19,7 +19,7 @@
           <a mat-button class="nav-link" href="/products">Продукты<span class="sr-only">(current)</span></a>
         </li>
       </ul>
-      <button mat-button (click)="userLogout()" class="btn-danger">Quit</button>
+      <button mat-button (click)="userLogout()" class="btn-danger">Выход</button>
     </div>
   </nav>
   <div class="container">
@@ -34,7 +34,7 @@
             <th scope="col">Адрес</th>
             <th scope="col">Телефон</th>
             <td>
-              <button mat-button class="btn-warning" (click)="addCafe()">Add</button>
+              <button mat-button class="btn-warning" (click)="addCafe()">Добавить</button>
             </td>
           </tr>
           </thead>
@@ -44,10 +44,10 @@
             <td>{{cafe.address}}</td>
             <td>{{cafe.telephone}}</td>
             <td>
-              <button mat-button class="btn-warning" (click)="updateCafe(cafe.idCafe)">Change</button>
+              <button mat-button class="btn-warning" (click)="updateCafe(cafe.idCafe)">Изменить</button>
             </td>
             <td>
-              <button mat-button class="btn-warning" (click)="deleteCafe(cafe.idCafe)">Delete</button>
+              <button mat-button class="btn-warning" (click)="deleteCafe(cafe.idCafe)">Удалить</button>
             </td>
           </tr>
           </tbody>

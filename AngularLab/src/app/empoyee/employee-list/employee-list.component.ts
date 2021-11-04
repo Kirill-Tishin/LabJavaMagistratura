@@ -67,6 +67,7 @@ export class EmployeeListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.getEmployees();
       this.getCafes();
+      this.matDialog.closeAll();
     });
   }
 
@@ -82,21 +83,15 @@ export class EmployeeListComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getCafes();
+      this.matDialog.closeAll();
     });
   }
 
   deleteEmployee(id: number): void {
     debugger;
     this.employeeService.deleteService(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          //this.reloadData();
-        },
-        error => console.log(error));
+      .subscribe(data => {
+        console.log(data);
+      }, error => console.log(error));
   }
-
-  // reloadData(): void {
-  //   this. = this.cafeService.getCafes();
-  // }
 }

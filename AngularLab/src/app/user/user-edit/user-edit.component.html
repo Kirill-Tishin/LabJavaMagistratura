@@ -3,18 +3,16 @@
   <form ngNativeValidate (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="form-row">
       <div class="col text-center">
-        <mat-label>Имя:</mat-label>
+
         <mat-form-field>
+          <mat-label>Имя</mat-label>
           <input matInput type="text" name="name" maxlength="50" [(ngModel)]="user.name">
         </mat-form-field>
       </div>
 
       <div class="form-row">
         <div class="col text-center">
-          <button mat-button color="primary" type="submit">Save</button>
-        </div>
-        <div class="col text-center">
-          <button mat-button color="primary" class="btn-warning" href="/user">Back</button>
+          <button mat-button color="primary" type="submit" class="btn-warning">Сохранить</button>
         </div>
       </div>
     </div>
